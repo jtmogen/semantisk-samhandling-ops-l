@@ -19,9 +19,9 @@ We will facilitate simplification, improvement and automation.
 The model must be suitable for further development and scaling.
 The model must cooperate well with other shared information models in society.
 
-
-
 # Data Exchange Protocol - High Level Scope
+
+A web enabled protocol for the robust exchange of data entities that correspond to the CIMA data model. A generic approach to data sharing that allows for future model constructs to be exhanged without need to change the protocol.
 
 
 
