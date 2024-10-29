@@ -1,0 +1,43 @@
+
+# https://plantuml-editor.kkeisuke.com/
+# https://plantuml.com/class-diagram
+
+@startuml
+
+abstract class Thing {
+    URI Id
+    []URI ExternalIdentifiers
+}
+
+abstract class Animal {
+}
+
+class Cattle {}
+class Sheep {}
+class Goat {}
+class Turkey {}
+
+Thing <|-- Animal
+
+Animal <|-- Cattle
+Animal <|-- Sheep
+Animal <|-- Goat
+Animal <|-- Turkey
+
+abstract class AnimalGroup {
+}
+
+Animal --> AnimalGroup : partOf
+
+abstract class Event {
+  DateTime Started
+  DateTime Ended
+}
+
+Thing <|-- Event
+
+class CattleIntoHerdEvent {
+
+}
+
+@enduml

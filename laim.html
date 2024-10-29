@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Livestock Agriculture Information Model 1.0</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+      defer
+    ></script>
+    <script class="remove">
+      // All config options at https://respec.org/docs/
+      var respecConfig = {
+        // Use "unofficial" or "base" to avoid the W3C-specific assumptions
+        specStatus: "unofficial",  // or "base" to indicate this is a non-W3C standard
+        shortName: "iso-standard-short-name",
+        
+        // Title and reference specific to ISO
+        title: "Livestock Agriculture Information Model 1.0",
+        isoReference: "ISO/IEC 12345-6:2024",  // Customize with the correct ISO reference
+        
+        // Editor information
+        editors: [{
+            name: "Graham Moore",
+            company: "MIMIRO",
+            url: "https://example.com"
+        }],
+        
+        // Turn off W3C-specific features
+        noRecTrack: true,  // This ensures it doesn't follow the W3C recommendation track
+        implementationReportURI: "",  // If there is no implementation report URI
+        canonicalURI: "",  // If there is no canonical W3C URI
+        
+        // Hide the W3C-specific logos and header/footer elements
+        logos: [],  // Use empty array to remove default logos
+        
+        // Optionally link to the draft
+        edDraftURI: "https://example.com/draft",
+        
+        // ISO-specific options you want to include in your Status of This Document (SOTD)
+        sotdText: `
+            <h2>Status of This Document</h2>
+            <p>This document is a Draft International Standard (DIS) developed by ISO/IEC. It is subject to change based on comments received during the consultation process with national member bodies and technical committees. This document does not represent a final ISO standard until it has been approved and published.</p>
+        `,
+        
+        // Customize the document's license section if needed
+        license: "document",  // Ensure this aligns with the licensing model ISO uses
+    };
+    </script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>A logical and semantic information model that describes the core entities, relationships and events for livestock.</p>
+    </section>
+    <section id="sotd">
+
+    </section>
+    <section class="informative">
+      <h2>Introduction</h2>
+      <p>Defining a semantic information model with concrete syntax based on international standards will improve the quality and timeliness of data exchange in agriculture. These improvements in inter-system communication leads to lower costs of integration, solutions of higher accuracy and the opportunity to create more value for farmers and industry partners.</p>
+      <aside class="note" title="background">
+        <p>Other industries have benefited from this approach and this initiative is an attempt to bring these concepts to agriculture.</p>
+      </aside>
+    </section>
+
+    <section>
+      <h2>Guide to the specification</h2>
+      <p>
+          This specification is uses a common approach to modelling and representing different aspects of livestock agriculture. The specification is divided into the following sections, Animal Sale & Purchase, Animal Feeding, Animal Health, Animal Reproduction, Animal Slaughter, Animal Milking Events. Each of these sections defines a set of events related to the specific aspect of livestock agriculture. These events utilise core entities that are defined in the Core Entities section. Each section defines the event as a logical information model, with text and diagrams, and then provides the RDF and SHACL representation of the event. Controlled vocabularies are used to define some of the values of the properties belonging to entities and events. These are also defined in a common section called vocabulary.
+      </p>
+    </section>
+
+    <section>
+      <h2>Common Entities</h2>
+      <p>
+        The following entities are used in the specification and are defined in the Core Entities section.
+      </p>
+      <section id="commercial-organisation-class">
+        <h3>Commercial Organisation</h3>
+        <p>
+          A commercial organisation is a business entity that is involved in the buying and selling of goods and services.
+        </p>
+        <p>
+            Uniquely identified by <i>http://data.opsl.no/laim/CommercialOrganisation</i>.
+        </p>
+        <section id="commercial-organisation-class-properties">
+          <h4>Properties</h4>
+          <ul>
+            <li>id (URI) - a unique system identifier</li>
+            <li>external identifiers ([]URI) - 1 or more identifiers for the same organisation</li>
+          </ul>
+        </section>
+        <section id="commercial-organisation-class-rdf">
+           <h4>RDF Representation</h4>
+
+           <h5>Definition</h5>
+            <pre class="language-plaintext">
+            @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+            @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+            @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+            @prefix schema: &lt;http://schema.org/&gt; .
+            @prefix laim: &lt;http://data.opsl.no/laim/&gt; .
+
+            laim:CommercialOrganisation a rdfs:Class ;
+              rdfs:label "Commercial Organisation" ;
+              rdfs:comment "A business entity that is involved in the buying and selling of goods and services." ;
+
+            laim:externalIdentifier a rdf:Property ;
+              rdfs:label "External Identifier" ;
+              rdfs:comment "An external identifier for the organisation." ;
+              rdfs:domain lami:CommercialOrganisation ;
+              rdfs:range xsd:string ;
+              rdfs:subPropertyOf schema:identifier ;
+            </pre>
+
+            <h5>SHACL</h5>
+            <pre class="language-plaintext">
+            @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+            @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+            @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+            @prefix schema: &lt;http://schema.org/&gt; .
+            @prefix laim: &lt;http://data.opsl.no/laim/&gt; .
+            
+            laim:CommercialOrganisationShape a sh:NodeShape ;
+              sh:targetClass laim:CommercialOrganisation ;
+              sh:property [
+                sh:path lami:externalIdentifier ;
+                sh:datatype xsd:string ;
+                sh:minCount 0 ;
+                # no maxCount
+              ] ;
+            </pre>                              
+        </section>
+      </section>
+      <section id="single-person-commercial-organisation-class">
+        <h3>Single Person Commercial Organisation</h3>
+        <p>
+          A single person commercial organisation is a business entity that is owned and operated by a single person.
+        </p>
+      </section>
+      <section id="animal-class">
+        <h3>Animal</h3>
+        <p>
+          An animal is a living organism that feeds on organic matter, typically having specialized sense organs and nervous system and able to respond rapidly to stimuli.
+        </p>
+        <p>
+            <img src="img/overall.png" alt="Animal Class Diagram">
+        </p>
+        <section id="animal-class-properties">
+          <h4>Properties</h4>
+          <ul>
+            <li>id - a unique system identifier</li>
+            <li>external identifiers - 1 or more identifiers for the same animal</li>
+            <li>partOfGroup - a reference to an instance of type animal group</li>
+        </section>
+      </section>
+      <section id="animal-group-class">
+        <h3>Animal Group</h3>
+        <p>
+          An animal group is a collection of animals that are managed together.
+        </p>
+      </section>
+      <section id="cattle-class">
+        <h3>Cattle</h3>
+        <p>
+          Cattle is a subclass of Animal, Bos taurus, a domesticated bovine primarily animal kept for milk or meat.
+        </p>
+      </section>
+      <section id="cattle-group-class">
+        <h3>Cattle Group</h3>
+        <p>
+          Cattle Group is a subclass of Animal Group, a group of cattle that are managed together.
+        </p>
+        <section id="cattle-group-class-properties">
+          <h4>Properties</h4>
+          <ul>
+            <li>partOfCattleGroup - a reference to a cattle group to which this Cattle instance belongs. This relationship class is a subClassOf <i>partOfGroup</i></li>
+          </ul>
+        </section>
+      </section>
+      <section id="sheep-class">
+        <h3>Sheep</h3>
+        <p>
+          Sheep is a subclass of Animal, Ovis aries, a domesticated ruminant animal with a thick woolly coat. Primarily kept for wool and meat production.
+        </p>
+      </section>
+      <section id="goat-class">
+        <h3>Goat</h3>
+        <p>
+          Goat is a subclass of Animal, Capra aegagrus hircus, a domesticated ruminant animal with a thick woolly coat. Used for meat and milk production.
+        </p>
+      </section>
+      <section id="pig-class">
+        <h3>Pig</h3>
+        <p>
+          Pig is a subclass of Animal, Sus scrofa domesticus, a domesticated mammal with a stout body, cloven hooves, and a short tail. Used for meat production.
+        </p>
+      </section>
+      <section id="turkey-class">
+        <h3>Turkey</h3>
+        <p>
+          Turkeyy is a subclass of Animal, domesticated birds kept for their meat.
+        </p>    
+      </section>
+      <section id="chicken-class">
+        <h3>Chicken</h3>
+        <p>
+          Chicken is a subclass of Animal, domesticated birds kept for their meat and eggs.
+        </p>
+      </section>
+      <section id="duck-class">
+        <h3>Duck</h3>
+        <p>
+          Duck is a subclass of Animal, domesticated birds kept for their meat and eggs.
+        </p>
+      </section>
+    </section>
+
+    <section>
+      <h2>Animal Transfer Events</h2>
+      <section id="animal-into-herd-event">
+        <h3>Animal Into Herd Event</h3>
+        <p>
+          An event that transfers an animal into a herd.
+        </p>
+        <section id="animal-into-herd-event-properties">
+          <h4>Properties</h4>
+          <ul>
+            <li>animal - a reference to an instance of type animal</li>
+            <li>herd - a reference to an instance of type animal group</li>
+            <li>date - the date the animal was transferred into the herd</li>
+            <li>reason - a aninal into herd reason</li>
+            <li>from - optional resource to indicate where.</li>
+          </ul>
+        </section>
+        <section>
+            <h4>Semantics</h4>
+            <p>Preconditions: Given Group G, sum hop (?animal-(partOfGroup)->G) = 0.</p>
+            <p>Postconditions: Given Group G, sum hop (?animal-(partOfGroup)->G) = 1.</p>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <h2>Animal Feeding Events</h2>
+    </section>
+
+    <section>
+      <h2>Animal Reproduction Events</h2>
+    </section>
+
+    <section>
+        <h2>Controlled Vocabularies</h2>
+        <section>
+            <h3>Animal Into Herd Reasons</h3>
+            <p>
+                The following are the possible reasons for an animal being transferred into a herd.
+            </p>
+            <section>
+                <h4>Reasons</h4>
+                <ul>
+                    <li>birth</li>
+                    <li>purchase</li>
+                    <li>other</li>
+                </ul>
+        </section>
+    </section>
+
+    <section id="conformance">
+      <p>
+        This is required for specifications that contain normative material.
+      </p>
+    </section>
+  </body>
+</html>
