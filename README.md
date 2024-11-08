@@ -34,6 +34,15 @@ If you want to make a proposal for a new part of the model either create an issu
 
 To clone a repository check out the following [link](https://github.com/git-guides/git-clone)
 
+## Slack Channel
+
+We have created a slack channel that can be used for discussion and questions
+
+mattilsynet-hq.slack.com#ops-landbruk-livestock-stadardisering
+
+Please contact Lars Bekk for an invite
+lars . bekk @ mattilsynet.no
+
 # Data Exchange Protocol - High Level Scope
 
 A web enabled protocol for the exchange of data entities that correspond to the LAIM data model. A generic approach to data sharing that allows for future model constructs to be exhanged without need to change the protocol.
