@@ -63,7 +63,12 @@ There will be many properties whose value is one value from a known set of value
 
 ## Common Identifier Schemes
 
-This is not yet decided, but it a proposal to try and create some common identifier schemes that aid the construction of core entities when there is a clear ownehips related to the minting of identity. e.g. http://data.mats.no/livestock/cattle/{unique mats assigned id}
+This is not yet decided, but it a proposal to try and create some common identifier schemes that aid the construction of core entities when there is clear ownerships related to the minting of identity. e.g. http://data.mats.no/livestock/cattle/{unique mats assigned id}
+
+## MultiLingual Terms
+
+Every class and property class has identifiers and labels. Identifiers will be in english (well the prefix part - the rest is guid or some other non-human friendly value) to help with gaining wider adoption. But these classes can have labels and descriptions in many languages. We will ensure that all core classes have labels and descriptions in both Norwegian and English.
+
 
 
 
