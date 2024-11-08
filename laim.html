@@ -23,8 +23,10 @@
         editors: [{
             name: "Graham Moore",
             company: "MIMIRO",
-            url: "https://example.com"
+            url: "https://github.com/datautvikling/Semantisk-samhandling-OPS-L"
         }],
+
+        github: "https://github.com/datautvikling/Semantisk-samhandling-OPS-L",
         
         // Turn off W3C-specific features
         noRecTrack: true,  // This ensures it doesn't follow the W3C recommendation track
@@ -35,7 +37,7 @@
         logos: [],  // Use empty array to remove default logos
         
         // Optionally link to the draft
-        edDraftURI: "https://example.com/draft",
+        edDraftURI: "https://github.com/datautvikling/Semantisk-samhandling-OPS-L/laim.html",
         
         // ISO-specific options you want to include in your Status of This Document (SOTD)
         sotdText: `
@@ -69,6 +71,13 @@
           This specification is uses a common approach to modelling and representing different aspects of livestock agriculture. The specification is divided into the following sections, Animal Sale & Purchase, Animal Feeding, Animal Health, Animal Reproduction, Animal Slaughter, Animal Milking Events. Each of these sections defines a set of events related to the specific aspect of livestock agriculture. These events utilise core entities that are defined in the Core Entities section. Each section defines the event as a logical information model, with text and diagrams, and then provides the RDF and SHACL representation of the event. Controlled vocabularies are used to define some of the values of the properties belonging to entities and events. These are also defined in a common section called vocabulary.
       </p>
     </section>
+
+    <section>
+        <h3>Section with an issue...</h3>
+        <p class="issue" data-number="8">
+          <!-- Issue can automatically be populated from GitHub -->
+        </p>
+      </section>
 
     <section>
       <h2>Common Entities</h2>
