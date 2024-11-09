@@ -4,9 +4,9 @@ Through OPS Landbruk, the ISO project Data-driven Agrifood System (ISO/TC 347), 
 
 The semantic information model will be based on event modeling, with foundational descriptions of key events related to livestock in order to improve data interoperability. 
 
-In the development of the semantic information model the group will include and coordinate other planned or ongoing projects related to livestock, and address also short-term needs of the industry.
+In the development of the semantic information model the group will include and coordinate other planned or ongoing projects related to livestock.
 
-The work will also cover areas where ISO standards are not required.
+The work will also adress short-term needs of the industry, and cover areas where ISO standards are not required.
 
 
 # Background
