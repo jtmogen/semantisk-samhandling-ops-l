@@ -1,12 +1,22 @@
-# Semantic Interoperability in Norwegian Agriculture
+# Semantic Information Model related to Livestock
 
-Semantic interoperability is the ability of computer systems to exchange data, in a well defined manner and with unambiguous meaning. Improving data exhange between and within organisations enables greater data quality and less cost in moving and understanding data. This in turn leads to improved and new business processes that directly improve the industry. 
+Through OPS Landbruk, the ISO project Data-driven Agrifood System (ISO/TC 347), and a potential Norwegian lead in an ad hoc group on livestock, the goal of this work is to develop a semantic information model related to livestock.
+
+The semantic information model will be based on event modeling, with foundational descriptions of key events related to livestock in order to improve data interoperability. 
+
+In the development of the semantic information model the group will include and coordinate other planned or ongoing projects related to livestock, and address also short-term needs of the industry.
+
+The work will also cover areas where ISO standards are not required.
+
 
 # Background
 
-OPS-Landbruk sees that like most industries agriculture and general land use actors are in greater need to sharing and understanding the common data elements that make up their digital worlds. 
+In accordance with the purpose and objectives of OPS Landbruk, OPS Landbruk will work to facilitate simplified data exchange in the Norwegian agricultural sector. 
 
-Based on the guidelines defined at digdir.no https://www.digdir.no/digital-samhandling/rammeverk-digital-samhandling/2148#nr_br_du_bruke_rammeverket, the technical working groups of OPS-Landbruk have decided to create a semantic information model to support agriculture data interoperability use cases.
+The objectives state that OPS shall
+      - Facilitate easier data sharing between the public and private sector with the goal of enabling machine-to-machine data exchange.
+      - Contribute to standardizations that are essential for simplifying data sharing, including interface standardizations,
+        and a shared semantic understanding of terms relevant to digitalization in the agriculture and food industry.
 
 # Livestock Agriculture Information Model - High Level Scope
 
