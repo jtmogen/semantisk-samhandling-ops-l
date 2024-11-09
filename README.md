@@ -14,7 +14,11 @@ The work will also adress short-term needs of the industry, and cover areas wher
 In accordance with the purpose and objectives of OPS Landbruk, OPS Landbruk will work to facilitate simplified data exchange in the Norwegian agricultural sector. 
 
 The objectives state that OPS shall
+
+
       - Facilitate easier data sharing between the public and private sector with the goal of enabling machine-to-machine data exchange.
+
+      
       - Contribute to standardizations that are essential for simplifying data sharing, including interface standardizations,
         and a shared semantic understanding of terms relevant to digitalization in the agriculture and food industry.
 
